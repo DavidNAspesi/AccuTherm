@@ -1,0 +1,25 @@
+html {
+	background-color: #303336;
+	color: #b3d9ff;
+	font-family: 'Raleway', sans-serif;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.subContainer {
+	justify-content: space-around;	
+}
+
+.span {
+	font-family: 'PT Mono', monospace;
+	color: red;
+}
+
+#chart_div {
+	z-index: 9999;
+}
