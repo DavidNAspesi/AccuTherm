@@ -9,7 +9,7 @@ def lab_temp():
     import sys
     temperature = random.uniform(71, 73)
     if temperature is not None:
-        return render_template("lab_temp.html",temp=temperature)
+        return render_template("lab_temp1.html",temp=temperature)
 
 
 if __name__ == "__main__":

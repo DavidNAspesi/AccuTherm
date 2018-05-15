@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="refresh" content="1">
+		<meta charset="utf-8">
+		<title>AccuTherm</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+		<link href="/static/css/main.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<div class="subContainer">
+				<h2>Real time environmental conditions</h2>
+				<h1>Temperature:<span class="span"> {{"{0:0.1f}".format(temp) }} °F</span></h1>
+			</div>
+			<canvas id="foo" height="300" width="600"></canvas>
+		</div>
+		<script>
+		var opts = {
+	  		angle: 0.00,
+	    		lineWidth: 0.7,
+	      		radiusScale: 1,
+	        	pointer: {
+				length: 1,
+			        strokeWidth: 0.042,
+				color: '#000000' 
+			},
+		  	limitMax: true,
+		    	limitMin: true,  
+		      	colorStart: '#CF0000', 
+		        colorStop: '#DA0000',
+			strokeColor: '#b3d9ff',
+			generateGradient: true,
+			highDpiSupport: true,    
+			renderTicks: {
+				divisions: 12,
+				divWidth: 0.9,
+				divLength: 1,
+				divColor: '#333333',
+				subDivisions: 10,
+				subLength: 0.32,
+				subWidth: 0.5,
+				subColor: '#666666'
+			},
+	    		staticLabels: {
+				font: "20px sans-serif",
+				labels: [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600 ],
+				color: '#b3d9ff'
+			}
+		};
+		var target = document.getElementById('foo'); 
+		var gauge = new Gauge(target).setOptions(opts);
+		gauge.maxValue = 600; 
+		gauge.setMinValue(0);
+		gauge.animationSpeed = 1;
+		gauge.set({{"{0:0.1f}".format(temp) }});
+		</script>
+	</body>
+</html>
