@@ -4,7 +4,7 @@ AccuTherm is a full stack web application that reads temperature from a type-k t
 
 ## Screenshot
 
-![AccuTherm screencap](https://drive.google.com/file/d/1z9_jf3encFBJxB2imGFKAfLS0rqvCBaK/view?usp=sharing)
+![AccuTherm screencap](./static/accuThermsc.gif)
 
 ## Setup
 
