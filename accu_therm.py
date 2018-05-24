@@ -1,15 +1,21 @@
 
 from flask import Flask, request, render_template
-import random
+import grove_hightemperature_sensor as grovepi
+import sys
 app = Flask(__name__)
-app.debug = True # Make this False if you are no longer debugging
+app.debug = False
 
 @app.route("/")
 def lab_temp():
-    import sys
-    temperature = random.uniform(71, 73)
-    if temperature is not None:
-        return render_template("lab_temp1.html",temp=temperature)
+    probe_temperature_pin = 14
+
+    sensor = grovepi.HighTemperatureSensor(probe_temperature_pin)
+    
+    while True:
+
+        temperature = sensor.getProbeTemperature()
+        if temperature is not None:
+            return render_template("lab_temp1.html",temp=temperature)
 
 
 if __name__ == "__main__":
